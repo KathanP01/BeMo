@@ -64,3 +64,54 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+Project Explanation: Smart Ticket Triage
+
+•	Terminal 1 → php artisan serve → Laravel backend (API + routes)
+o	Ex: C:\Bhargav\xampp\htdocs\smart-ticket-triage>php artisan serve
+•	Terminal 2 → npm run dev → Vite frontend (Vue app for UI)
+o	C:\Bhargav\xampp\htdocs\smart-ticket-triage>npm run dev
+
+1.	Dashboard Page
+URL: http://127.0.0.1:8000/dashboard
+Features:
+•	Show statistics (total tickets, open tickets, resolved tickets, etc.).
+•	Show charts (maybe line charts or pie charts) using Chart.js.
+•	Optionally show real-time updates (tickets updating without refresh).
+
+2.	Tickets List Page
+URL: http://127.0.0.1:8000/tickets
+Features:
+•	Show a list of tickets (like a table or cards).
+•	Filter by status → Open, Pending, Resolved.
+•	Filter by category → IT, HR, Billing, etc.
+•	Search bar → find tickets quickly by keywords.
+•	Create New Ticket → Button “+ New Ticket” opens a modal.
+
+3.	Ticket Detail Page
+Accessed when you click a ticket from the list
+
+Features:
+•	View full details 
+•	Update manually.
+•	Re-classify with AI → Calls OpenAI API to suggest correct category
+
+How It Works (Behind the Scenes)
+1.	Laravel (Backend)
+o	Handles API requests (/api/tickets, /api/dashboard)
+o	Connects to the database (MySQL) to store tickets.
+o	Provides JSON data for Vue frontend.
+2.	Vue.js + Vite (Frontend)
+o	Displays the UI (Dashboard, Tickets, Ticket Details).
+o	Uses Vue Router → /dashboard, /tickets, /tickets/:id.
+o	Uses Axios → calls backend APIs to get ticket data.
+o	Uses Chart.js → draws graphs in Dashboard.
+3.	OpenAI API
+o	When clicks “Re-classify with AI” → ticket text is sent to OpenAI.
+o	AI returns a category → “IT”, “Billing”, “HR”.
+o	Laravel saves updated category in the database.
+
+
+
+
