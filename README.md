@@ -65,6 +65,78 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+---
+
+## Setup Instructions
+
+Follow these steps to get the project running locally (≤ 10 steps):
+
+1. Clone the repository  
+   ```bash
+   git clone <repo-url>
+   cd smart-ticket-triage
+
+2. Install PHP dependencies 
+   ```bash
+   composer install
+
+3. Install frontend dependencies 
+   ```bash
+   npm install
+
+4. Copy environment file
+   ```bash
+   cp .env.example .env
+
+5. Generate application key 
+   ```bash
+   php artisan key:generate
+
+6. Run database migrations with seed data
+   ```bash
+   php artisan migrate --seed
+
+7. Start the Laravel backend
+   ```bash
+   php artisan serve
+
+8. Start the Vue frontend (Vite)
+   ```bash
+   npm run dev
+
+
+---
+
+## Assumptions & Trade-offs
+
+- Assumed tickets only have categories like IT, HR, Billing.
+- AI classification uses a direct OpenAI API call instead of a fine-tuned/custom model for speed.
+- Database schema kept simple (tickets table only) to save development time.
+
+## What I’d Do With More Time
+
+- Add authentication & role-based access control.
+- Improve real-time updates using Laravel Echo + WebSockets.
+- Add unit and feature tests for APIs.
+- Enhance UI/UX with pagination, sorting, and advanced filters.
+
+---
+
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:5nbi5G52F/Ll+5L2urCjR0sxOGIntQ7zT9oZlQu3FyY=
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=smart_ticket
+DB_USERNAME=root
+DB_PASSWORD=
+
+OPENAI_API_KEY= # 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
+QUEUE_CONNECTION=database
 
 ---
 
