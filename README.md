@@ -66,51 +66,81 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
-Project Explanation: Smart Ticket Triage
+---
 
-•	Terminal 1 → php artisan serve → Laravel backend (API + routes)
-o	Ex: C:\Bhargav\xampp\htdocs\smart-ticket-triage>php artisan serve
-•	Terminal 2 → npm run dev → Vite frontend (Vue app for UI)
-o	C:\Bhargav\xampp\htdocs\smart-ticket-triage>npm run dev
+# Project Explanation: Smart Ticket Triage
 
-1.	Dashboard Page
-URL: http://127.0.0.1:8000/dashboard
-Features:
-•	Show statistics (total tickets, open tickets, resolved tickets, etc.).
-•	Show charts (maybe line charts or pie charts) using Chart.js.
-•	Optionally show real-time updates (tickets updating without refresh).
+### Setup
 
-2.	Tickets List Page
-URL: http://127.0.0.1:8000/tickets
-Features:
-•	Show a list of tickets (like a table or cards).
-•	Filter by status → Open, Pending, Resolved.
-•	Filter by category → IT, HR, Billing, etc.
-•	Search bar → find tickets quickly by keywords.
-•	Create New Ticket → Button “+ New Ticket” opens a modal.
+- **Terminal 1** → `php artisan serve` → Laravel backend (API + routes)  
+  Example:  C:\Kathan\xampp\htdocs\smart-ticket-triage>php artisan serve
 
-3.	Ticket Detail Page
-Accessed when you click a ticket from the list
+- **Terminal 2** → `npm run dev` → Vite frontend (Vue app for UI)  
+  Example:  C:\Kathan\xampp\htdocs\smart-ticket-triage>npm run dev
 
-Features:
-•	View full details 
-•	Update manually.
-•	Re-classify with AI → Calls OpenAI API to suggest correct category
+  
+---
 
-How It Works (Behind the Scenes)
-1.	Laravel (Backend)
-o	Handles API requests (/api/tickets, /api/dashboard)
-o	Connects to the database (MySQL) to store tickets.
-o	Provides JSON data for Vue frontend.
-2.	Vue.js + Vite (Frontend)
-o	Displays the UI (Dashboard, Tickets, Ticket Details).
-o	Uses Vue Router → /dashboard, /tickets, /tickets/:id.
-o	Uses Axios → calls backend APIs to get ticket data.
-o	Uses Chart.js → draws graphs in Dashboard.
-3.	OpenAI API
-o	When clicks “Re-classify with AI” → ticket text is sent to OpenAI.
-o	AI returns a category → “IT”, “Billing”, “HR”.
-o	Laravel saves updated category in the database.
+### 1. Dashboard Page  
+**URL:** `http://127.0.0.1:8000/dashboard`
+
+**Features:**
+- Show statistics (total tickets, open tickets, resolved tickets, etc.).
+- Show charts (maybe line charts or pie charts) using Chart.js.
+- Optionally show real-time updates (tickets updating without refresh).
+
+---
+
+### 2. Tickets List Page  
+**URL:** `http://127.0.0.1:8000/tickets`
+
+**Features:**
+- Show a list of tickets (like a table or cards).
+- Filter by status → Open, Pending, Resolved.
+- Filter by category → IT, HR, Billing, etc.
+- Search bar → find tickets quickly by keywords.
+- Create New Ticket → Button “+ New Ticket” opens a modal.
+
+---
+
+### 3. Ticket Detail Page  
+**Accessed when you click a ticket from the list**
+
+**Features:**
+- View full details.  
+- Update manually.  
+- Re-classify with AI → Calls OpenAI API to suggest correct category.  
+
+---
+
+## How It Works (Behind the Scenes)
+
+### 1. Laravel (Backend)
+- Handles API requests (`/api/tickets`, `/api/dashboard`).  
+- Connects to the database (MySQL) to store tickets.  
+- Provides JSON data for Vue frontend.  
+
+### 2. Vue.js + Vite (Frontend)
+- Displays the UI (Dashboard, Tickets, Ticket Details).  
+- Uses Vue Router → `/dashboard`, `/tickets`, `/tickets/:id`.  
+- Uses Axios → calls backend APIs to get ticket data.  
+- Uses Chart.js → draws graphs in Dashboard.  
+
+### 3. OpenAI API
+- When clicks “Re-classify with AI” → ticket text is sent to OpenAI.  
+- AI returns a category → “IT”, “Billing”, “HR”.  
+- Laravel saves updated category in the database.  
+
+
+## Application Preview
+![1](https://github.com/user-attachments/assets/217525b4-a282-4592-9306-1c6f71d5ee1a)
+![2](https://github.com/user-attachments/assets/95c41147-252a-4082-bde9-d795b078f74f)
+![3](https://github.com/user-attachments/assets/5efa0c10-5d6a-43de-9f04-6834e50906d9)
+![4](https://github.com/user-attachments/assets/c1eb532a-1b8a-4a1e-bc3f-4f4633302d3e)
+![5](https://github.com/user-attachments/assets/d37cdd38-d762-4751-8e43-4b1d4b27152a)
+![6](https://github.com/user-attachments/assets/dc18371c-9398-4d78-8450-e89ac813cc10)
+
+
 
 
 
